@@ -5,25 +5,8 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
-
-		<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-		<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
-		<div id="map" style="width: 100%; height: 1200px" />
-		<script>
-			const MY_ACCESS_TOKEN =
-				'pk.eyJ1IjoidG9tLXRpbW15IiwiYSI6ImNsbHVyNmtqMjBnenIzcG1udWRxaGNsc3MifQ.bYy4m8fOtyG2j7pKePlxmw';
-			mapboxgl.accessToken = MY_ACCESS_TOKEN;
-
-			const map = new mapboxgl.Map({
-				container: 'map', // container ID
-				style: 'mapbox://styles/mapbox/streets-v12', // style URL
-				center: [-74.5, 40], // starting position [lng, lat]
-				zoom: 9 // starting zoom
-			});
-			console.log('map', map);
-		</script>
 	</body>
 </html>
