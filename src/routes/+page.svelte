@@ -3,6 +3,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { Map, Marker, Popup } from 'mapbox-gl';
 	import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
+	import MapboxLanguage from '@mapbox/mapbox-gl-language';
 
 	const SOOMINS_ACCESS_TOKEN =
 		'pk.eyJ1IjoidG9tLXRpbW15IiwiYSI6ImNsbHVyNmtqMjBnenIzcG1udWRxaGNsc3MifQ.bYy4m8fOtyG2j7pKePlxmw';
@@ -18,7 +19,7 @@
 
 	lng = FUKUSHIMA_COORDINATES.lng;
 	lat = FUKUSHIMA_COORDINATES.lat;
-	zoom = 9;
+	zoom = 4.5;
 
 	function updateData() {
 		zoom = map.getZoom();
@@ -37,6 +38,9 @@
 			center: [initialState.lng, initialState.lat],
 			zoom: initialState.zoom
 		});
+
+		const language = new MapboxLanguage({ supportedLanguages: ['ko'], defaultLanguage: 'ko' });
+		map.addControl(language);
 
 		// 마커 추가
 		new Marker({ color: 'red' })
@@ -140,7 +144,7 @@
 	.map {
 		position: absolute;
 		width: 100%;
-		height: 100%;
+		height: 80%;
 	}
 
 	.sidebar {
@@ -150,7 +154,7 @@
 		font-family: monospace;
 		z-index: 1;
 		position: absolute;
-		bottom: 0px;
+		bottom: 20px;
 		left: 0;
 		margin: 12px;
 		border-radius: 4px;
